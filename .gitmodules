@@ -1,0 +1,3 @@
+[submodule "submodules/qzxing"]
+	path = submodules/qzxing
+	url = https://github.com/ftylitak/qzxing.git

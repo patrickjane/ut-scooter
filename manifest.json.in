@@ -1,0 +1,15 @@
+{
+    "name": "scooter.s710",
+    "description": "App for accessing electric scooters",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Scooter",
+    "hooks": {
+        "Scooter": {
+            "apparmor": "Scooter.apparmor",
+            "desktop":  "Scooter.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Patrick Fial <mg.m@gmx.net>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}

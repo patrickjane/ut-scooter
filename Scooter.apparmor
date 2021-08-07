@@ -1,0 +1,4 @@
+{
+    "policy_groups": ["location", "networking", "camera", "video" ],
+    "policy_version": 16.04
+}

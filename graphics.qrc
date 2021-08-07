@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>graphics/qrcode_bk.png</file>
+        <file>graphics/scooter.png</file>
+        <file>graphics/scooter_marker_256.png</file>
+        <file>graphics/scooter_marker_128.png</file>
+    </qresource>
+</RCC>
