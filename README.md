@@ -6,6 +6,7 @@ Since the app uses undocumented provider APIs, there might be errors while using
 ## Overview
 This app aims to provide support for unlocking/riding electric scooters on Ubuntu Touch. While the app is built as multi-provider app, currently only *Bird* (https://www.bird.co) is supported.
 
+
 <p float="left">
 <img title="Screenshot" alt="Screenshot" width="32%" src="screenshots/screenshot1.png">
 <img title="Screenshot" alt="Screenshot" width="32%" src="screenshots/screenshot2.png">
@@ -26,6 +27,9 @@ The app provides the following features:
 The app will be able to load existing/still active rides when the app is closed / opened again.
 
 The official *Bird* app (iOS/Android) will be able to "see" rides which have been started with this app. As such, the official app can be used to stop rides in case of errors/issues with this app.
+
+
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/scooter.s710)
 
 ## Setup
 
