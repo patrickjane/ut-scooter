@@ -3,3 +3,4 @@ libs
 .clickable
 *.pro
 *.pro.user
+*.autosave

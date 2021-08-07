@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scooter.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-07 16:26+0000\n"
+"POT-Creation-Date: 2021-08-07 18:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,17 +65,17 @@ msgstr ""
 msgid "Username/email"
 msgstr ""
 
-#: ../qml/pages/MapPage.qml:223 ../qml/pages/MapPageMapbox.qml:185
+#: ../qml/pages/MapPage.qml:223 ../qml/pages/MapPageMapbox.qml:189
 msgid "Network error"
 msgstr ""
 
-#: ../qml/pages/MapPage.qml:224 ../qml/pages/MapPage.qml:237
-#: ../qml/pages/MapPageMapbox.qml:186 ../qml/pages/MapPageMapbox.qml:199
+#: ../qml/pages/MapPage.qml:224 ../qml/pages/MapPage.qml:238
+#: ../qml/pages/MapPageMapbox.qml:190 ../qml/pages/MapPageMapbox.qml:204
 msgid "error"
 msgstr ""
 
-#: ../qml/pages/MapPage.qml:235 ../qml/pages/MapPage.qml:237
-#: ../qml/pages/MapPageMapbox.qml:197 ../qml/pages/MapPageMapbox.qml:199
+#: ../qml/pages/MapPage.qml:236 ../qml/pages/MapPage.qml:238
+#: ../qml/pages/MapPageMapbox.qml:202 ../qml/pages/MapPageMapbox.qml:204
 #: ../qml/pages/ScanPage.qml:101
 #: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:332
 #: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:348
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Ride"
 msgstr ""
 
-#: ../qml/pages/MapPage.qml:235 ../qml/pages/MapPageMapbox.qml:197
+#: ../qml/pages/MapPage.qml:236 ../qml/pages/MapPageMapbox.qml:202
 msgid "Ride stopped"
 msgstr ""
 

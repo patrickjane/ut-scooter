@@ -148,7 +148,6 @@ Item {
          settings.lastLatitude = positionSource.position.coordinate.latitude
          settings.lastLongitude = positionSource.position.coordinate.longitude
 
-         var forceFromReady = scooters.ready
          var distance = lastCoordinate && lastCoordinate.distanceTo(position.coordinate) || -1
 
          if (accuracy > 20 || lastCoordinate === undefined || !!mapPage.activeRide) {
@@ -158,14 +157,14 @@ Item {
 
          var reloadDistanceScooter = lastScooterReloadCoordinate && lastScooterReloadCoordinate.distanceTo(position.coordinate) || -1
 
-         if (forceFromReady || reloadDistanceScooter >= 100 || lastScooterReloadCoordinate === undefined) {
+         if (scooters.ready || reloadDistanceScooter >= 100 || lastScooterReloadCoordinate === undefined) {
             scooters.reloadScooters(positionSource.position.coordinate, 300)
             lastScooterReloadCoordinate = QtPositioning.coordinate(positionSource.position.coordinate.latitude, positionSource.position.coordinate.longitude)
          }
 
          var reloadDistanceAreas = lastAreaReloadCoordinate && lastAreaReloadCoordinate.distanceTo(position.coordinate) || -1
 
-         if (forceFromReady || reloadDistanceAreas >= 300 || lastAreaReloadCoordinate === undefined) {
+         if (scooters.ready || reloadDistanceAreas >= 300 || lastAreaReloadCoordinate === undefined) {
             scooters.reloadAreas(positionSource.position.coordinate, 300)
             lastAreaReloadCoordinate = QtPositioning.coordinate(positionSource.position.coordinate.latitude, positionSource.position.coordinate.longitude)
          }
