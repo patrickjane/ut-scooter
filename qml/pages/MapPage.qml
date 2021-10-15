@@ -173,8 +173,12 @@ Item {
       }
 
       Component.onCompleted: {
-         if (positionSource.position.latitudeValid && positionSource.position.longitudeValid)
+         if (positionSource.hasValidPosition())
             lastCoordinate = QtPositioning.coordinate(positionSource.position.coordinate.latitude, positionSource.position.coordinate.longitude)
+      }
+
+      function hasValidPosition() {
+         return positionSource.position.latitudeValid && positionSource.position.longitudeValid
       }
    }
 
@@ -301,7 +305,7 @@ Item {
 
       iconName: "navigation-menu"
       onClicked: {
-         pageStack.push(Qt.resolvedUrl("./SettingsPage.qml"), { scooters: scooters, logs: logs })
+         pageStack.push(Qt.resolvedUrl("./SettingsPage.qml"), { scooters: scooters, positionSource: positionSource, logs: logs })
       }
    }
 
@@ -332,7 +336,7 @@ Item {
 
       iconName: "location-active"
       onClicked: {
-         if (positionSource.position.latitudeValid && positionSource.position.longitudeValid) {
+         if (positionSource.hasValidPosition()) {
             map.center = positionSource.position.coordinate
             map.zoomLevel = 18
          }

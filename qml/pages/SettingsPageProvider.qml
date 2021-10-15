@@ -7,6 +7,7 @@ import Ubuntu.Components.ListItems 1.3
 import "../util"
 
 Page {
+   property var positionSource
    property string provider
    property string account
    property var scooters
@@ -96,13 +97,17 @@ Page {
          }
 
          ListItem {
+            id: profileRow
+            property bool shouldEnable: !needsLocationFor("profile") || settingsPageProvider.positionSource.hasValidPosition()
             height: layout2.height + (divider.visible ? divider.height : 0)
-            enabled: !!account
+            enabled: !!account && shouldEnable
 
             SlotsLayout {
                id: layout2
                mainSlot: Label {
                   text: i18n.tr("Profile")
+                  + (profileRow.shouldEnable ? "" : (" " + i18n.tr("(GPS needed to show profile)")))
+                  color: profileRow.shouldEnable ? "black" : "gray"
                }
                Icon {
                   name: "toolkit_chevron-ltr_3gu"
@@ -125,5 +130,18 @@ Page {
       }
 
       return i18n.tr("No description available")
+   }
+
+   function needsLocationFor(what) {
+      switch (settingsPageProvider.provider) {
+      case "bird":
+         if (what === "profile")
+            return true
+         break;
+
+      default: break
+      }
+
+      return false
    }
 }

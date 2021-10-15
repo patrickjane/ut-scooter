@@ -274,18 +274,16 @@ namespace scooter
 
       network::ReqHeaders thisHeaders = defaultHeaders;
 
-      if (position)
+      if (!position || !position->lastKnownPosition().isValid())
       {
-         auto ifo = position->lastKnownPosition();
-
-         if (ifo.isValid())
-         {
-            auto pos = ifo.coordinate();
-
-            thisHeaders["Location"] = QString("{\"latitude\":%1,\"longitude\":%2,\"altitude\":%3,\"accuracy\":65,\"speed\":-1,\"heading\":-1}")
-                  .arg(pos.latitude()).arg(pos.longitude()).arg("500");
-         }
+         emit error(C::gettext("Location not available, can not load profile"));
+         return;
       }
+
+      auto pos = position->lastKnownPosition().coordinate();
+
+      thisHeaders["Location"] = QString("{\"latitude\":%1,\"longitude\":%2,\"altitude\":%3,\"accuracy\":65,\"speed\":-1,\"heading\":-1}")
+            .arg(pos.latitude()).arg(pos.longitude()).arg("500");
 
       net->get<network::ReqCallback>(QUrl(PROFILE_URL), thisHeaders, [this](int err, int code, QByteArray body)
       {

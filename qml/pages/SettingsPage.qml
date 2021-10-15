@@ -11,6 +11,7 @@ Page {
    id: settingsPage
    anchors.fill: parent
 
+   property var positionSource
    property var scooters
    property var logs
    property int padding: parent.width * 0.05
@@ -185,7 +186,7 @@ Page {
                }
 
                onClicked: {
-                  pageStack.push(Qt.resolvedUrl("./SettingsPageProvider.qml"), { provider: modelData, account: scooters.getAccountId(modelData), scooters: scooters })
+                  pageStack.push(Qt.resolvedUrl("./SettingsPageProvider.qml"), { provider: modelData, account: scooters.getAccountId(modelData), scooters: scooters, positionSource: positionSource })
                }
             }
          }

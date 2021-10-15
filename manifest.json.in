@@ -9,7 +9,7 @@
             "desktop":  "Scooter.desktop"
         }
     },
-    "version": "1.1.0",
+    "version": "1.3.0",
     "maintainer": "Patrick Fial <mg.m@gmx.net>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
