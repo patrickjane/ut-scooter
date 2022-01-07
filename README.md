@@ -60,6 +60,11 @@ The app *should*, however, always display the correct pricing information when t
 
 For unknown error situations, the app should be able to report error information which can be forwarded to the developer for analysis.
 
+## License
+
+Copyright (C) 2021-2022 Patrick Fial
+
+Licensed under the MIT license
 
 # Copyright notice
 
