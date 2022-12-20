@@ -7,6 +7,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(Qt5Core REQUIRED)
+find_package(Qt5Svg REQUIRED)
 find_package(Qt5Qml REQUIRED)
 find_package(Qt5Quick REQUIRED)
 find_package(Qt5QuickControls2 REQUIRED)
@@ -45,20 +46,16 @@ else()
     )
 endif()
 
-set(QZXING_MULTIMEDIA ON)
-set(QZXING_USE_QML ON)
 add_definitions(
-  -DENABLE_ENCODER_GENERIC
-  -DQZXING_QML
-  -DQZXING_MULTIMEDIA
-  -DQZXING_LIBRARY
-  -DZXING_ICONV_CONST
-  -DDISABLE_LIBRARY_FEATURES
-  -DENABLE_DECODER_QR_CODE
+ -DQZXING_QML
+ -DQZXING_MULTIMEDIA
+ -DQZXING_LIBRARY
+ -DZXING_ICONV_CONST
+ -DDISABLE_LIBRARY_FEATURES
+ -DENABLE_DECODER_QR_CODE
 )
 
-add_subdirectory(submodules/qzxing/src)
-include_directories(submodules/qzxing/src/zxing)
+find_package(QZXing REQUIRED)
 
 set(SOURCES main.cpp src/network.cpp src/provider.cpp src/providerbird.cpp src/scooters.cpp src/QmlClipboard.cpp src/logger.h)
 
@@ -74,8 +71,9 @@ qt5_add_resources(QT_RESOURCES assets/assets.qrc)
 add_executable(${PROJECT_NAME} ${SOURCES} ${QT_RESOURCES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS_RELEASE -s)
-target_link_libraries(${PROJECT_NAME} Qt5::Gui Qt5::Qml Qt5::Quick Qt5::Location Qt5::Positioning Qt5::Multimedia Qt5::QuickControls2)
-target_link_libraries(${PROJECT_NAME} qzxing)
+target_link_libraries(${PROJECT_NAME} Qt5::Gui Qt5::Svg Qt5::Qml Qt5::Quick Qt5::Location Qt5::Positioning Qt5::Multimedia Qt5::QuickControls2)
+
+target_link_libraries(${PROJECT_NAME} QZXing::qzxing)
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # Translations

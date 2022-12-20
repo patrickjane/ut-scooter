@@ -20,7 +20,6 @@
         <file>colors/Colors.qml</file>
         <file>colors/qmldir</file>
         <file>pages/SettingsPageLogs.qml</file>
-        <file>pages/MapPageMapbox.qml</file>
         <file>util/CouponWarning.qml</file>
     </qresource>
 </RCC>

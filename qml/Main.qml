@@ -31,9 +31,6 @@ MainView {
    }
 
    Component.onCompleted: {
-      if (settings.mapType === "osm")
-         pageStack.push(Qt.resolvedUrl("pages/MapPage.qml"))
-      else
-         pageStack.push(Qt.resolvedUrl("pages/MapPageMapbox.qml"))
+      pageStack.push(Qt.resolvedUrl("pages/MapPage.qml"))
    }
 }

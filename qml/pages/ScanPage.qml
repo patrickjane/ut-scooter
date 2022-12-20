@@ -1,7 +1,7 @@
 import QtQuick 2.7
 import Ubuntu.Components 1.3
 import QtMultimedia 5.12
-import QZXing 3.1
+import QZXing 3.3
 
 import "../util"
 import "../notify"
@@ -89,6 +89,7 @@ Page {
       running: true
       onTriggered: {
          videoOutput.grabToImage(function(result) {
+            console.log("Decoging image ....")
             qzxing.decodeImage(result.image);
          });
       }
