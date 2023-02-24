@@ -68,6 +68,7 @@ public:
     Q_INVOKABLE void logout(QString providerName);
     Q_INVOKABLE void confirmLogin(QString providerName, QString confirmation);
     Q_INVOKABLE void getProfile(QString providerName);
+    Q_INVOKABLE void getAccountHistory(QString providerName);
 
     Q_INVOKABLE void setCountry(QString providerName, QString countryName);
     Q_INVOKABLE void setCity(QString providerName, QString cityName, QString domain);
@@ -123,6 +124,7 @@ signals:
     void confirmLoginNeeded(QString providerName);
     void loginStatusChanged(QString providerName, bool loggedIn, QString account);
     void profile(QString providerName, QVariantList profile);
+    void accountHistoryLoaded(QString err, QString history);
     void activeRideChanged(QVariant ride, QString error, QString rideInfo);
     void rideChecked(QString error, QString rideDetails);
 

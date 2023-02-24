@@ -18,6 +18,30 @@ Page {
    anchors.fill: parent
 
    Component.onCompleted: {
+      scooters.onAccountHistoryLoaded.connect(function(err, history) {
+         if (err) {
+            Notify.error(i18n.tr("Failed to load account history"), err)
+            return
+         }
+
+         var items = []
+
+         try {
+            items = JSON.parse(history)
+         } catch (e) {
+            Notify.error(i18n.tr("Failed to load account history"), e)
+            return
+         }
+
+         items.sort(function(a, b) {
+            if (a.date < b.date) return 1;
+            if (a.date > b.date) return -1;
+            return 0;
+         });
+
+         pageStack.push(Qt.resolvedUrl("./AccountHistory.qml"), { provider: provider, history: items })
+      })
+
       scooters.onProfile.connect(function(provider, profile) {
          console.log("profile loaded")
 
@@ -129,76 +153,26 @@ Page {
             }
          }
 
-         // ListItem {
-         //    height: layout5.height + (divider.visible ? divider.height : 0)
-         //    visible: provider === "nextbike"
+         ListItem {
+            height: layout5.height + (divider.visible ? divider.height : 0)
+            visible: provider === "nextbike"
 
-         //    SlotsLayout {
-         //       id: layout5
-         //       mainSlot: Label {
-         //          text: i18n.tr("Country") + ": " + (country || i18n.tr("please select"))
-         //       }
-         //       Icon {
-         //          name: "toolkit_chevron-ltr_3gu"
-         //          SlotsLayout.position: SlotsLayout.Trailing;
-         //          width: units.gu(2)
-         //       }
-         //    }
+            SlotsLayout {
+               id: layout5
+               mainSlot: Label {
+                  text: i18n.tr("Account history")
+               }
+               Icon {
+                  name: "toolkit_chevron-ltr_3gu"
+                  SlotsLayout.position: SlotsLayout.Trailing;
+                  width: units.gu(2)
+               }
+            }
 
-         //    onClicked: {
-         //       var countries = Provider.getCountryList(provider)
-         //       var countryNames = countries.map(function(c) { return c.name })
-
-         //       var p = pageStack.push(Qt.resolvedUrl("../util/ListSelector.qml"), { items: countryNames, title: i18n.tr("Select country") })
-
-         //       p.itemSelected.connect(function(index, value) {
-         //          var countryObj = countries[index]
-
-         //          settingsPageProvider.country = countryObj.name
-         //          settingsPageProvider.city = null
-
-         //          scooters.setCountry(provider, countryObj.name)
-         //          scooters.setCity(provider, "", "")
-         //       })
-         //    }
-         // }
-
-         // ListItem {
-         //    height: layout6.height + (divider.visible ? divider.height : 0)
-         //    visible: provider === "nextbike"
-         //    enabled: !!country
-
-         //    SlotsLayout {
-         //       id: layout6
-         //       mainSlot: Label {
-         //          text: i18n.tr("City") + ": " + (city || i18n.tr("please select"))
-         //       }
-         //       Icon {
-         //          name: "toolkit_chevron-ltr_3gu"
-         //          SlotsLayout.position: SlotsLayout.Trailing;
-         //          width: units.gu(2)
-         //       }
-         //    }
-
-         //    onClicked: {
-         //       var cities = Provider.getCityList(provider, country)
-         //       var cityNames = cities.map(function(c) { return c.name })
-
-         //       var p = pageStack.push(Qt.resolvedUrl("../util/ListSelector.qml"), {
-         //          items: cityNames, title: i18n.tr("Select city")
-         //          })
-
-         //       p.itemSelected.connect(function(index, value) {
-         //          var cityObj = cities[index]
-
-         //          settingsPageProvider.city = value
-         //          scooters.setCity(provider, cityObj.name, cityObj.domain)
-
-         //          Provider.update(provider, settingsPageProvider.country, cityObj.name, cityObj.domain)
-         //       })
-         //    }
-         // }
-
+            onClicked: {
+               scooters.getAccountHistory(provider)
+            }
+         }
       }
    }
 

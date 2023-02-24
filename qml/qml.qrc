@@ -10,6 +10,7 @@
         <file>pages/SettingsPage.qml</file>
         <file>pages/SettingsPageProvider.qml</file>
         <file>pages/SettingsPageLogs.qml</file>
+        <file>pages/AccountHistory.qml</file>
         <file>map/MapTerminalNextbike.qml</file>
         <file>map/MapScooter.qml</file>
         <file>map/MapScooterView.qml</file>

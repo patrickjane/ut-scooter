@@ -230,6 +230,16 @@ void Scooters::getProfile(QString providerName)
 }
 
 // **************************************************************************
+// getAccountHistory
+// **************************************************************************
+
+void Scooters::getAccountHistory(QString providerName)
+{
+    providers[providerName]->getAccountHistory(
+      [this](QString err, QString contents) { emit accountHistoryLoaded(err, contents); });
+}
+
+// **************************************************************************
 // setCountry
 // **************************************************************************
 

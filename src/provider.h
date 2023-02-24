@@ -133,6 +133,10 @@ public:
         return city;
     }
 
+    virtual void getAccountHistory(ResultCallback<QString>)
+    {
+    }
+
 signals:
     void ready();
     void activeRideLoaded(QString rideId, QDateTime started, QString scooterId);

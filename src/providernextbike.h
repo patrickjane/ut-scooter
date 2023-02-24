@@ -51,6 +51,7 @@ public:
     void login(QString loginId, QString password = "") override;
     void logout() override;
     void getProfile() override;
+    void getAccountHistory(ResultCallback<QString>) override;
 
     void setCountry(QString countryName) override;
     void setCity(QString cityName, QString domain) override;

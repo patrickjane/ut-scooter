@@ -47,6 +47,7 @@
 #define SCAN_URL "https://api.nextbike.net/api/getBikeState.json"
 #define UNLOCK_URL "https://api.nextbike.net/api/rent.json"
 #define RIDE_DETAILS_URL "https://api.nextbike.net/api/getRentalDetails.json"
+#define ACCOUN_HISTORY_URL "https://api.nextbike.net/api/list.json"
 
 // #define LOGIN_URL "http://10.0.60.43:3003/login"
 // #define ZONES_URL "http://10.0.60.43:3003/zones"
@@ -56,6 +57,7 @@
 // #define SCAN_URL "http://10.0.60.43:3003/scan"
 // #define UNLOCK_URL "http://10.0.60.43:3003/unlock"
 // #define RIDE_DETAILS_URL "http://10.0.60.43:3003/rideDetails"
+// #define ACCOUN_HISTORY_URL "http://10.0.60.43:3003/list"
 
 namespace C {
 #include <libintl.h>
@@ -259,7 +261,7 @@ void ProviderNextbike::getProfile()
           if (user.contains("credits")) {
               QVariantMap m;
               m.insert("id", C::gettext("Credits"));
-              m.insert("value", QString::number(user["credits"].toDouble() / 100));
+              m.insert("value", QString::number(user["credits"].toDouble() / 100.0, 'f', 2));
 
               items << m;
           }
@@ -273,6 +275,103 @@ void ProviderNextbike::getProfile()
           }
 
           emit profile(items);
+      });
+}
+
+// **************************************************************************
+// getAccountHistory
+// **************************************************************************
+
+void ProviderNextbike::getAccountHistory(ResultCallback<QString> callback)
+{
+    if (!isLoggedIn()) {
+        emit error(C::gettext("Not logged in"));
+        return;
+    }
+
+    QUrl url(ACCOUN_HISTORY_URL);
+    QUrlQuery query;
+    query.addQueryItem("apikey", ScooterPrivate::getApiKey("nextbike"));
+    query.addQueryItem("loginkey", loginKey);
+    query.addQueryItem("show_errors", "true");
+    query.addQueryItem("language", QLocale::system().name().split("_").first());
+    url.setQuery(query.query());
+
+    network::ReqBody body;
+    body["bookings"] = true;
+
+    net->postJson<network::ReqCallback>(
+      url, body, defaultHeaders, [this, callback](int err, int code, QByteArray body) {
+          if (err != QNetworkReply::NoError || code != 200 || body.isEmpty()) {
+              log(Severity::Error,
+                  "Account history response: " + QString::number(code) + " (" + body + ")");
+
+              QString errStr
+                = (QString(C::gettext("Loading account history failed")) + " (%1/%2/%3)")
+                    .arg(err)
+                    .arg(code)
+                    .arg(body.isEmpty());
+              callback(errStr, "");
+              return;
+          }
+
+          log(Severity::Info,
+              "Account history response: " + QString::number(code) + " Body: " + body);
+
+          auto doc = QJsonDocument::fromJson(body);
+          auto parsed = (!doc.isNull() && doc.isObject()) ? doc.object() : QJsonObject();
+
+          if (parsed.isEmpty() || !parsed.contains("account")) {
+              callback(
+                C::gettext(
+                  "Scooter could not successfully be scanned / details could not be fetched"),
+                "");
+              return;
+          }
+
+          auto account = parsed["account"].toObject();
+          auto user = parsed["user"].toObject();
+
+          if (!account.contains("items") || account["items"].toArray().size() == 0) {
+              return callback("", "");
+          }
+
+          QJsonArray res;
+
+          auto items = account["items"].toArray();
+
+          for (const QJsonValue& item : items) {
+              auto type = item["node"].toString();
+
+              if (type != "rental" && type != "payment") {
+                  continue;
+              }
+
+              QJsonObject obj;
+              obj["type"] = type == "rental" ? C::gettext("Ride") : C::gettext("Payment");
+
+              if (type == "rental") {
+                  obj["date"] = item["start_time"];
+                  obj["text"] = item["city"].toString() + ", " + QString(C::gettext("from")) + ": "
+                                + item["start_place_name"].toString() + " "
+                                + QString(C::gettext("to")) + " "
+                                + item["end_place_name"].toString();
+
+                  obj["cost"] = (item["price"].toInt() + item["price_service"].toInt());
+                  obj["duration"] = item["end_time"].toInt() - item["start_time"].toInt();
+              } else {
+                  obj["date"] = item["date"].toString().toInt();
+                  obj["text"] = item["text"];
+                  obj["cost"] = item["amount"];
+              }
+
+              obj["locale"] = QLocale::system().name().split("_").first();
+              obj["currency"] = user["currency"];
+
+              res.append(obj);
+          }
+
+          callback("", QJsonDocument(res).toJson(QJsonDocument::Compact));
       });
 }
 
@@ -915,14 +1014,12 @@ void ProviderNextbike::checkActiveRide(QString rideId, SupplementaryCallback<QSt
           infoObject["currency"] = currency;
           infoObject["locale"] = QLocale::system().name().split("_").first();
 
-          qDebug() << "End place: " << endPlace;
-
           if (endPlace.startsWith("BIKE ")) {
               infoObject["hint"] = C::gettext(
                 "Bike has been parked in a flex zone, which leads to an increased service fee");
           }
 
-          callback("", QJsonDocument(infoObject).toJson(), "");
+          callback("", QJsonDocument(infoObject).toJson(QJsonDocument::Compact), "");
       });
 }
 
