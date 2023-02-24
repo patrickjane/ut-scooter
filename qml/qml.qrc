@@ -1,25 +1,35 @@
 <RCC>
     <qresource prefix="/">
         <file>Main.qml</file>
-        <file>util/qmldir</file>
         <file>pages/MapPage.qml</file>
-        <file>pages/SettingsPage.qml</file>
-        <file>pages/SettingsPageProvider.qml</file>
         <file>pages/ProfilePage.qml</file>
         <file>pages/ScanPage.qml</file>
+        <file>pages/SharePage.qml</file>
         <file>pages/LoginPage.qml</file>
-        <file>util/HelperFunctions.qml</file>
+        <file>pages/LoginPageNextbike.qml</file>
+        <file>pages/SettingsPage.qml</file>
+        <file>pages/SettingsPageProvider.qml</file>
+        <file>pages/SettingsPageLogs.qml</file>
+        <file>map/MapTerminalNextbike.qml</file>
+        <file>map/MapScooter.qml</file>
+        <file>map/MapScooterView.qml</file>
+        <file>map/MapTerminalView.qml</file>
+        <file>map/MapAreaView.qml</file>
+        <file>util/qmldir</file>
         <file>util/ActiveRideInfo.qml</file>
         <file>util/Battery.qml</file>
-        <file>util/ScooterInfo.qml</file>
+        <file>util/CouponWarning.qml</file>
         <file>util/Disclaimer.qml</file>
+        <file>util/HelperFunctions.qml</file>
+        <file>util/ListSelector.qml</file>
         <file>util/RideSummary.qml</file>
+        <file>util/NextBikeTerminalInfo.qml</file>
+        <file>util/ScooterInfo.qml</file>
+        <file>util/PopoverSelector.qml</file>
+        <file>notify/qmldir</file>
         <file>notify/Notification.qml</file>
         <file>notify/Notify.qml</file>
-        <file>notify/qmldir</file>
         <file>colors/Colors.qml</file>
         <file>colors/qmldir</file>
-        <file>pages/SettingsPageLogs.qml</file>
-        <file>util/CouponWarning.qml</file>
     </qresource>
 </RCC>

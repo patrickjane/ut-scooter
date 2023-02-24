@@ -1,0 +1,2 @@
+singleton NextBike 1.0 NextBike.qml
+singleton Provider 1.0 Provider.qml

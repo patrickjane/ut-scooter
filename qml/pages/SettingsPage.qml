@@ -75,6 +75,8 @@ Page {
                   pageStack.push(Qt.resolvedUrl("./SettingsPageProvider.qml"), {
                      provider: modelData,
                      account: scooters.getAccountId(modelData),
+                     country: scooters.getCountry(modelData),
+                     city: scooters.getCity(modelData),
                      scooters: scooters,
                      positionSource: positionSource })
                }
@@ -109,7 +111,7 @@ Page {
             }
 
             onClicked: {
-               pageStack.push(Qt.resolvedUrl("./SettingsPageLogs.qml"), { logs: logs })
+               pageStack.push(Qt.resolvedUrl("./SettingsPageLogs.qml"), { logs: logs, scooters: scooters })
             }
          }
       }

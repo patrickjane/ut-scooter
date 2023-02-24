@@ -44,7 +44,9 @@ Rectangle {
          Image {
             width: units.gu(3)
             height: units.gu(3)
-            source: "qrc:///graphics/scooter.png"
+            source: scooterInfo.scooter && (scooterInfo.scooter.provider == "nextbike"
+                  ? "qrc:///graphics/bike.png"
+                  : "qrc:///graphics/scooter.png") || "qrc:///graphics/scooter.png"
             anchors.verticalCenter: parent.verticalCenter
          }
 
@@ -72,10 +74,12 @@ Rectangle {
          anchors.horizontalCenter: parent.horizontalCenter
 
          Battery {
+            visible: scooterInfo.scooter && (scooterInfo.scooter.battery > -1) || false
             batteryLevel: scooterInfo.scooter && (scooterInfo.scooter.battery / 100) || 0
          }
 
          Text {
+            visible: scooterInfo.scooter && (scooterInfo.scooter.range > -1) || false
             anchors.verticalCenter: parent.verticalCenter
             font.pointSize: units.gu(1)
             color: "#232323"
@@ -90,6 +94,17 @@ Rectangle {
          }
       }
 
+      Text {
+         anchors.horizontalCenter: parent.horizontalCenter
+         visible: scooterInfo.scooter && !!scooterInfo.scooter.description || false
+         font.pointSize: units.gu(1)
+         wrapMode: Text.WordWrap
+         width: parent.width
+
+         color: "#232323"
+         text: scooterInfo.scooter && scooterInfo.scooter.description || ""
+      }
+
       Row {
          spacing: paddingMedium
          anchors.horizontalCenter: parent.horizontalCenter
@@ -98,7 +113,7 @@ Rectangle {
             color: "black"
             text: i18n.tr("Ring")
             width: (scooterInfo.width -2*padding) / 2 - paddingMedium
-            visible: scooterInfo.mode == "show"
+            visible: scooterInfo.mode == "show" && scooterInfo.scooter && canRing(scooterInfo.scooter.provider) || false
             onClicked: onRing(scooterInfo.scooter)
          }
          Button {
@@ -119,5 +134,13 @@ Rectangle {
          width: parent.width
          height: units.gu(2)
       }
+   }
+
+   function canRing(provider) {
+      switch (provider) {
+         case "bird": return true
+      }
+
+      return false
    }
 }

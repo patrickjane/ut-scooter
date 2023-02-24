@@ -5,11 +5,14 @@ set -Eeuo pipefail
 # Setup paths where clickable will look for the sources
 ROOT_DIR=$(git rev-parse --show-toplevel)
 QZXING_SRC_DIR=$ROOT_DIR/libs/qzxing
+SCOOTERPRIVATE_SRC_DIR=$ROOT_DIR/libs/scooter_private
 
 # Remove old downloads
-rm -rf $QZXING_SRC_DIR ${QZXING_SRC_DIR}_TMP
+rm -rf $QZXING_SRC_DIR ${QZXING_SRC_DIR}_TMP $SCOOTERPRIVATE_SRC_DIR
 
 # Download sources
+
+git clone box@deimos.universe:/storage/data/gitroot/ut-scooter-private $SCOOTERPRIVATE_SRC_DIR
 
 git clone https://github.com/ftylitak/qzxing.git "${QZXING_SRC_DIR}_TMP"
 cd "${QZXING_SRC_DIR}_TMP"
@@ -21,3 +24,4 @@ rm -rf "${QZXING_SRC_DIR}_TMP"
 cd "${QZXING_SRC_DIR}"
 cp ../../QZXingConfig.cmake.in .
 cd ..
+

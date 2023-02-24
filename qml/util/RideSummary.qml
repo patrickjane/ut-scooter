@@ -35,7 +35,10 @@ Rectangle {
          Image {
             width: units.gu(3)
             height: units.gu(3)
-            source: "qrc:///graphics/scooter.png"
+            source: rideSummary.rideInfo && (rideSummary.rideInfo.provider == "nextbike"
+                  ? "qrc:///graphics/bike.png"
+                  : "qrc:///graphics/scooter.png") || "qrc:///graphics/scooter.png"
+
             anchors.verticalCenter: parent.verticalCenter
          }
 
@@ -130,8 +133,20 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             font.pointSize: units.gu(1.5)
             color: "#232323"
-            text: rideInfo && rideInfo.cost || ""
+            text: rideInfo
+                  && (rideInfo.provider == "nextbike" ? HelperFunctions.formatCurrency(rideInfo) : rideInfo.cost)
+                  || ""
          }
+      }
+
+      Text {
+         anchors.horizontalCenter: parent.horizontalCenter
+         font.pointSize: units.gu(1.5)
+         color: "#232323"
+         width: parent.width
+         wrapMode: Text.WordWrap
+         text: rideInfo && rideInfo.hint || ""
+         visible: rideInfo && rideInfo.hint || false
       }
 
       Button {

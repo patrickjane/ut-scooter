@@ -110,6 +110,9 @@ Page {
       if (code.indexOf("https://ride.bird.co/") === 0)
          return ["bird", code.replace("https://ride.bird.co/", "")]
 
+      if (code.indexOf("http://nxtb.it/") === 0)
+         return ["nextbike", code.replace("http://nxtb.it/", "")]
+
       return
    }
 }

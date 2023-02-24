@@ -56,8 +56,9 @@ add_definitions(
 )
 
 find_package(QZXing REQUIRED)
+find_package(ScooterPrivate REQUIRED)
 
-set(SOURCES main.cpp src/network.cpp src/provider.cpp src/providerbird.cpp src/scooters.cpp src/QmlClipboard.cpp src/logger.h)
+set(SOURCES main.cpp src/network.cpp src/provider.cpp src/providerbird.cpp src/providernextbike.cpp src/scooters.cpp src/QmlClipboard.cpp src/logger.h)
 
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
@@ -74,6 +75,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS_RELEASE -s)
 target_link_libraries(${PROJECT_NAME} Qt5::Gui Qt5::Svg Qt5::Qml Qt5::Quick Qt5::Location Qt5::Positioning Qt5::Multimedia Qt5::QuickControls2)
 
 target_link_libraries(${PROJECT_NAME} QZXing::qzxing)
+target_link_libraries(${PROJECT_NAME} ScooterPrivate::ScooterPrivate)
+
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # Translations

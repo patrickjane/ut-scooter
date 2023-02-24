@@ -1,19 +1,20 @@
 // **************************************************************************
 // class Provider
-// 02.07.2021
 // Base class for scooter provider API implementations
 // **************************************************************************
 // MIT License
-// Copyright © 2021 Patrick Fial
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
-// files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy,
-// modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
-// is furnished to do so, subject to the following conditions:
-// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-// THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-// WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// Copyright © 2023 Patrick Fial
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+// associated documentation files (the “Software”), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions: The above copyright notice and this
+// permission notice shall be included in all copies or substantial portions of the Software. THE
+// SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // **************************************************************************
 // includes
@@ -28,37 +29,36 @@
 // namespace scooter
 // **************************************************************************
 
-namespace scooter
+namespace scooter {
+// **************************************************************************
+// class Provider
+// **************************************************************************
+
+Provider::Provider(network::Network* net, QGeoPositionInfoSource* position, QObject* parent)
+  : Logger(parent), fReady(false), net(net), position(position)
 {
-   // **************************************************************************
-   // class Provider
-   // **************************************************************************
-
-   Provider::Provider(network::Network* net, QGeoPositionInfoSource* position, QObject* parent)
-      : Logger(parent), fReady(false), net(net), position(position)
-   {
-   }
-
-   // **************************************************************************
-   // reportError
-   // **************************************************************************
-
-   void Provider::reportNetworkError(QString prefix, int err, int code, bool bodyEmpty)
-   {
-      QString errStr = (prefix + " (%1/%2/%3)").arg(err).arg(code).arg(bodyEmpty);
-      qDebug() << errStr;
-      emit error(errStr);
-   }
-
-   // **************************************************************************
-   // logout
-   // **************************************************************************
-
-   void Provider::logout()
-   {
-      qDebug() << "Provider::logout";
-      account.clear();
-      priceInfo.clear();
-      qDebug() << "Provider::logout (done)";
-   }
 }
+
+// **************************************************************************
+// reportError
+// **************************************************************************
+
+void Provider::reportNetworkError(QString prefix, int err, int code, bool bodyEmpty)
+{
+    QString errStr = (prefix + " (%1/%2/%3)").arg(err).arg(code).arg(bodyEmpty);
+    qDebug() << errStr;
+    emit error(errStr);
+}
+
+// **************************************************************************
+// logout
+// **************************************************************************
+
+void Provider::logout()
+{
+    qDebug() << "Provider::logout";
+    account.clear();
+    priceInfo.clear();
+    qDebug() << "Provider::logout (done)";
+}
+} // namespace scooter

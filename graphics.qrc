@@ -4,5 +4,15 @@
         <file>graphics/scooter.png</file>
         <file>graphics/scooter_marker_256.png</file>
         <file>graphics/scooter_marker_128.png</file>
+        <file>graphics/bike_marker_512.png</file>
+        <file>graphics/bike_marker_256.png</file>
+        <file>graphics/bike_marker_128.png</file>
+        <file>graphics/bike.png</file>
+        <file>graphics/station_marker_512.png</file>
+        <file>graphics/station_marker_256.png</file>
+        <file>graphics/station_marker_128.png</file>
+        <file>graphics/tool_512.png</file>
+        <file>graphics/tool_128.png</file>
+        <file>graphics/layers.png</file>
     </qresource>
 </RCC>

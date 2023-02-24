@@ -22,13 +22,13 @@ QtObject {
       return hours+':'+minutes+':'+seconds;
    }
 
-      function formatCurrency(locale, balances) {
-      if (!locale || !balances)
+   function formatCurrency(item) {
+      if ((!item.value && !item.cost) || !item.locale || !item.currency)
          return;
 
-      var currency = Object.keys(balances)[0]
+      var cost = item.cost || item.value
 
-      return Number(balances[currency] / 100.0).toLocaleCurrencyString(Qt.locale(locale), currencyToSymbol(currency))
+      return Number(cost / 100.0).toLocaleCurrencyString(Qt.locale(item.locale), currencyToSymbol(item.currency))
    }
 
    function currencyToSymbol(currency) {
@@ -50,6 +50,6 @@ QtObject {
           'vnd': '₫', // Vietnamese Dong
       };
 
-      return currency_symbols[currency] || currency;
+      return currency && currency_symbols[currency.toLowerCase()] || currency;
    }
 }

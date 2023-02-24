@@ -14,6 +14,7 @@ Page {
    anchors.fill: parent
 
    property var logs
+   property var scooters
 
    Settings {
       id: settings
@@ -29,6 +30,17 @@ Page {
       title: i18n.tr("Logs")
       trailingActionBar {
          actions: [
+            Action {
+               iconName: "share"
+               onTriggered: {
+                  var logFile = scooters.exportLogs(logWindow.text)
+
+                  console.log("Exporting:", logFile)
+
+                  if (logFile)
+                     pageStack.push(Qt.resolvedUrl("SharePage.qml"), { url: "file://" + logFile })
+               }
+            },
             Action {
                iconName: "edit-copy"
                onTriggered: {

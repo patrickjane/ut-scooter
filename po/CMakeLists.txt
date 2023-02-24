@@ -12,6 +12,7 @@ file(GLOB PO_FILES *.po)
 list(APPEND I18N_SRC_FILES
     ${CMAKE_SOURCE_DIR}/src/network.cpp
     ${CMAKE_SOURCE_DIR}/src/providerbird.cpp
+    ${CMAKE_SOURCE_DIR}/src/providernextbike.cpp
     ${CMAKE_SOURCE_DIR}/src/provider.cpp
     ${CMAKE_SOURCE_DIR}/src/scooters.cpp
     )

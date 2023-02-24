@@ -1,4 +1,4 @@
 {
-    "policy_groups": ["location", "networking", "camera", "video" ],
+    "policy_groups": ["location", "networking", "camera", "video", "content_exchange", "content_exchange_source" ],
     "policy_version": 16.04
 }

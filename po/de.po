@@ -7,26 +7,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scooter.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-22 10:34+0000\n"
-"PO-Revision-Date: 2021-08-22 12:43+0200\n"
+"POT-Creation-Date: 2023-02-24 14:40+0000\n"
+"PO-Revision-Date: 2023-02-24 15:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: ../qml/pages/LoginPage.qml:22
+#: ../qml/pages/LoginPage.qml:22 ../qml/pages/LoginPageNextbike.qml:23
 msgid "login"
 msgstr "login"
 
-#: ../qml/pages/LoginPage.qml:45 ../qml/pages/ProfilePage.qml:41
+#: ../qml/pages/LoginPage.qml:45
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:300
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:232
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: ../qml/pages/LoginPage.qml:63 ../qml/pages/SettingsPageProvider.qml:82
+#: ../qml/pages/LoginPage.qml:63 ../qml/pages/LoginPageNextbike.qml:79
+#: ../qml/pages/SettingsPageProvider.qml:85
 msgid "Login"
 msgstr "Login"
 
@@ -42,11 +45,11 @@ msgstr "Bestätigungscode eingeben"
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#: ../qml/pages/LoginPage.qml:123
+#: ../qml/pages/LoginPage.qml:123 ../qml/pages/LoginPageNextbike.qml:96
 msgid "Login successful"
 msgstr "Anmeldung erfolgreich"
 
-#: ../qml/pages/LoginPage.qml:125
+#: ../qml/pages/LoginPage.qml:125 ../qml/pages/LoginPageNextbike.qml:98
 msgid "Login failed"
 msgstr "Anmeldung fehlgeschlagen"
 
@@ -66,26 +69,60 @@ msgstr "E-Mail"
 msgid "Username/email"
 msgstr "Benutzername/E-Mail"
 
-#: ../qml/pages/MapPage.qml:226 ../qml/pages/MapPageMapbox.qml:189
+#: ../qml/pages/LoginPageNextbike.qml:46
+msgid "Phone number / PIN"
+msgstr "Rufnummer / PIN"
+
+#: ../qml/pages/LoginPageNextbike.qml:58
+msgid "Enter phone number"
+msgstr "Telefonnummer eingeben"
+
+#: ../qml/pages/LoginPageNextbike.qml:72
+msgid "Enter PIN"
+msgstr "PIN eingeben"
+
+#: ../qml/pages/MapPage.qml:140 ../qml/pages/MapPage.qml:143
+msgid "scooters"
+msgstr "Scooter"
+
+#: ../qml/pages/MapPage.qml:140
+msgid "terminals"
+msgstr "Terminals"
+
+#: ../qml/pages/MapPage.qml:140
+msgid "zones"
+msgstr "Zonen"
+
+#: ../qml/pages/MapPage.qml:144
+msgid "bikes"
+msgstr "Fahrräder"
+
+#: ../qml/pages/MapPage.qml:153 ../qml/pages/MapPage.qml:358
+msgid "not logged in"
+msgstr "Nicht eingeloggt"
+
+#: ../qml/pages/MapPage.qml:275
 msgid "Network error"
 msgstr "Netzwerkfehler"
 
-#: ../qml/pages/MapPage.qml:227 ../qml/pages/MapPage.qml:241
-#: ../qml/pages/MapPageMapbox.qml:190 ../qml/pages/MapPageMapbox.qml:204
+#: ../qml/pages/MapPage.qml:276 ../qml/pages/MapPage.qml:294
+#: ../qml/pages/MapPage.qml:334
 msgid "error"
 msgstr "Fehler"
 
-#: ../qml/pages/MapPage.qml:239 ../qml/pages/MapPage.qml:241
-#: ../qml/pages/MapPageMapbox.qml:202 ../qml/pages/MapPageMapbox.qml:204
-#: ../qml/pages/ScanPage.qml:101
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:332
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:348
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:362
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:379
+#: ../qml/pages/MapPage.qml:292 ../qml/pages/MapPage.qml:294
+#: ../qml/pages/MapPage.qml:316 ../qml/pages/MapPage.qml:334
+#: ../qml/pages/ScanPage.qml:102
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:377
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:393
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:406
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:415
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:428
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:450
 msgid "Ride"
 msgstr "Fahrt"
 
-#: ../qml/pages/MapPage.qml:239 ../qml/pages/MapPageMapbox.qml:202
+#: ../qml/pages/MapPage.qml:292 ../qml/pages/MapPage.qml:316
 msgid "Ride stopped"
 msgstr "Fahrt beendet"
 
@@ -93,131 +130,60 @@ msgstr "Fahrt beendet"
 msgid "profile"
 msgstr "Profil"
 
-#: ../qml/pages/ProfilePage.qml:55
-msgid "Registered"
-msgstr "Registriert"
-
-#: ../qml/pages/ProfilePage.qml:69
-msgid "Last ride"
-msgstr "Letzte Fahrt"
-
-#: ../qml/pages/ProfilePage.qml:83
-msgid "Ride count"
-msgstr "Fahrten"
-
-#: ../qml/pages/ProfilePage.qml:97
-msgid "Free rides"
-msgstr "Freifahrten"
-
-#: ../qml/pages/ProfilePage.qml:111
-msgid "Balance"
-msgstr "Guthaben"
-
 #: ../qml/pages/ScanPage.qml:19
 msgid "Scan QR code"
 msgstr "QR Code scannen"
 
-#: ../qml/pages/ScanPage.qml:101
+#: ../qml/pages/ScanPage.qml:102
 msgid "Code not recognized/provider not supported"
 msgstr "Code nicht erkannt/Anbieter nicht unterstützt"
 
-#: ../qml/pages/SettingsPage.qml:27 ../qml/pages/SettingsPageProvider.qml:37
+#: ../qml/pages/SettingsPage.qml:27 ../qml/pages/SettingsPageProvider.qml:40
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../qml/pages/SettingsPage.qml:49
-msgid "Maps"
-msgstr "Karten"
-
-#: ../qml/pages/SettingsPage.qml:51
-msgid "Restart the app after changing the map type"
-msgstr "Starten Sie die App nach dem Ändern des Kartentyps neu"
-
-#: ../qml/pages/SettingsPage.qml:63
-msgid "Use OpenStreetMap"
-msgstr "OpenStreetMap verwenden"
-
-#: ../qml/pages/SettingsPage.qml:87
-msgid "Use Mapbox GL"
-msgstr "Mapbox GL verwenden"
-
-#: ../qml/pages/SettingsPage.qml:110
-msgid "Mapbox Access Token"
-msgstr "Mapbox Access Token "
-
-#: ../qml/pages/SettingsPage.qml:112
-msgid "Map won't work unless a valid access token is supplied"
-msgstr ""
-"Die Karte funktioniert nur, wenn ein gültiger Access-Token bereitgestellt "
-"wird"
-
-#: ../qml/pages/SettingsPage.qml:125
-msgid ""
-"Mapbox requires a valid account and associated API key. After generating the "
-"key, please add it in the field below and restart the app.\n"
-"To create an API key, consult the following article:\n"
-"https://docs.mylistingtheme.com/article/how-to-generate-a-mapbox-api-key"
-msgstr ""
-"Mapbox erfordert ein gültiges Konto und einen zugehörigen API-Schlüssel. "
-"Nachdem Sie den Schlüssel generiert haben, fügen Sie ihn bitte in das Feld "
-"unten ein und starten Sie die App neu.\n"
-"Informationen zum Erstellen eines API-Schlüssels finden Sie im folgenden "
-"Artikel:\n"
-"https://docs.mylistingtheme.com/article/how-to-generate-a-mapbox-api-key"
-
-#: ../qml/pages/SettingsPage.qml:139
-msgid "Enter mapbox access token"
-msgstr "Mapbox Access-Token eingeben"
-
-#: ../qml/pages/SettingsPage.qml:145
-msgid "Save"
-msgstr "Speichern"
-
-#: ../qml/pages/SettingsPage.qml:151
-msgid "Please restart app"
-msgstr "Bitte starten Sie die App neu"
-
-#: ../qml/pages/SettingsPage.qml:164
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:281
+#: ../qml/pages/SettingsPage.qml:50
 msgid "Provider"
 msgstr "Anbieter"
 
-#: ../qml/pages/SettingsPage.qml:201
+#: ../qml/pages/SettingsPage.qml:92
 msgid "Support"
 msgstr "Support"
 
-#: ../qml/pages/SettingsPage.qml:213 ../qml/pages/SettingsPageLogs.qml:29
+#: ../qml/pages/SettingsPage.qml:104 ../qml/pages/SettingsPageLogs.qml:30
 msgid "Logs"
 msgstr "Logs"
 
-#: ../qml/pages/SettingsPageProvider.qml:57
+#: ../qml/pages/SettingsPageProvider.qml:60
 msgid "General"
 msgstr "Allgemein"
 
-#: ../qml/pages/SettingsPageProvider.qml:79
+#: ../qml/pages/SettingsPageProvider.qml:82
 msgid "Account"
 msgstr "Account"
 
-#: ../qml/pages/SettingsPageProvider.qml:79
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:271
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:625
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:659
+#: ../qml/pages/SettingsPageProvider.qml:82
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:268
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:678
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:714
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:189
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:668
 msgid "Not logged in"
 msgstr "Nicht angemeldet"
 
-#: ../qml/pages/SettingsPageProvider.qml:82
+#: ../qml/pages/SettingsPageProvider.qml:85
 msgid "Logout"
 msgstr "Ausloggen"
 
-#: ../qml/pages/SettingsPageProvider.qml:108
+#: ../qml/pages/SettingsPageProvider.qml:117
 msgid "Profile"
 msgstr "Profil"
 
-#: ../qml/pages/SettingsPageProvider.qml:109
+#: ../qml/pages/SettingsPageProvider.qml:118
 msgid "(GPS needed to show profile)"
 msgstr "(GPS benötigt um Profil anzuzeigen)"
 
-#: ../qml/pages/SettingsPageProvider.qml:129
+#: ../qml/pages/SettingsPageProvider.qml:209
 msgid ""
 "Access to electric scooters provided by Bird (see https://www.bird.co). "
 "Existing account with associated payment information is needed. This app "
@@ -228,17 +194,40 @@ msgstr ""
 "Diese App unterstützt keine Erstellung von Accounts oder das Ändern von "
 "Zahlungsinformationen."
 
-#: ../qml/pages/SettingsPageProvider.qml:132
+#: ../qml/pages/SettingsPageProvider.qml:211
+msgid ""
+"Access to bikes provided by NextBike (see https://www.nextbike.de/de/). "
+"Existing account with associated payment information is needed. This app "
+"does not support creating accounts or changing payment information."
+msgstr ""
+"Zugang zu Fahrrädern von NextBike (siehe https://www.nextbike.de/de/). "
+"Existierender Account mit hinterlegten Zahlungsinformationen wird benötigt. "
+"Diese App unterstützt keine Erstellung von Accounts oder das Ändern von "
+"Zahlungsinformationen."
+
+#: ../qml/pages/SettingsPageProvider.qml:214
 msgid "No description available"
 msgstr "Keine Beschreibung verfügbar"
 
-#: ../qml/util/ActiveRideInfo.qml:76
+#: ../qml/pages/SharePage.qml:11
+msgid "Share logs"
+msgstr "Logs teilen"
+
+#: ../qml/util/ActiveRideInfo.qml:78
 msgid "End ride"
 msgstr "Fahrt beenden"
 
-#: ../qml/util/ActiveRideInfo.qml:77
+#: ../qml/util/ActiveRideInfo.qml:79
 msgid "Confirm end"
 msgstr "Bestätigen"
+
+#: ../qml/util/ActiveRideInfo.qml:100
+msgid "End ride by locking the bike"
+msgstr "Fahrt beenden durch abschließen des Fahrrads"
+
+#: ../qml/util/ActiveRideInfo.qml:107
+msgid "Re-open bike lock"
+msgstr "Schloss erneut öffnen"
 
 #: ../qml/util/CouponWarning.qml:59
 msgid "Coupons"
@@ -276,151 +265,199 @@ msgstr ""
 "zu erwarten. Der Autor der App ist nicht verantwortlich für Kosten die durch "
 "die Nutzung der App entstehen."
 
-#: ../qml/util/RideSummary.qml:55
+#: ../qml/util/NextBikeTerminalInfo.qml:56
+msgid "station"
+msgstr "Terminal"
+
+#: ../qml/util/NextBikeTerminalInfo.qml:90
+msgid "Available bikes"
+msgstr "Verfügbare Fahrräder"
+
+#: ../qml/util/NextBikeTerminalInfo.qml:103
+msgid "Available racks"
+msgstr "Verfügbare Ständer"
+
+#: ../qml/util/RideSummary.qml:58
 msgid "Ride has been cancelled"
 msgstr "Fahrt wurde storniert"
 
-#: ../qml/util/RideSummary.qml:56
+#: ../qml/util/RideSummary.qml:59
 msgid "Ride completed!"
 msgstr "Fahrt beendet!"
 
-#: ../qml/util/RideSummary.qml:75
+#: ../qml/util/RideSummary.qml:78
 msgid "Duration"
 msgstr "Dauer"
 
-#: ../qml/util/RideSummary.qml:96
+#: ../qml/util/RideSummary.qml:99
 msgid "Distance"
 msgstr "Strecke"
 
-#: ../qml/util/RideSummary.qml:117
+#: ../qml/util/RideSummary.qml:120
 msgid "Cost"
 msgstr "Kosten"
 
-#: ../qml/util/RideSummary.qml:140
+#: ../qml/util/RideSummary.qml:155
 msgid "Close"
 msgstr "Schließen"
 
-#: ../qml/util/ScooterInfo.qml:99
+#: ../qml/util/ScooterInfo.qml:114
 msgid "Ring"
 msgstr "Klingeln"
 
-#: ../qml/util/ScooterInfo.qml:107
+#: ../qml/util/ScooterInfo.qml:122
 msgid "Captive"
 msgstr "Unerreichbar"
 
-#: ../qml/util/ScooterInfo.qml:107
+#: ../qml/util/ScooterInfo.qml:122
 msgid "Not available"
 msgstr "Nicht verfügbar"
 
-#: ../qml/util/ScooterInfo.qml:108
+#: ../qml/util/ScooterInfo.qml:123
 msgid "Unlock"
 msgstr "Entsperren"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:161
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:157
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:136
 msgid "Login request failed"
 msgstr "Anmeldung fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:180
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:173
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:150
 msgid "Login failed (unexpected response)"
 msgstr "Anmeldung fehlgeschlagen (unerwartete Antwort)"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:199
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:196
 msgid "Login confirmation failed"
 msgstr "Anmeldebestätigung fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:209
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:206
 msgid "Login failed (no tokens)"
 msgstr "Anmeldung fehlgeschlagen (keine Token)"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:243
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:241
 msgid "Login refresh failed"
 msgstr "Anmeldeaktualisierung fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:253
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:251
 msgid "Login refresh failed (no tokens)"
 msgstr "Anmeldeaktualisierung fehlgeschlagen (keine Token)"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:279
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:275
 msgid "Location not available, can not load profile"
 msgstr "Standort nicht verfügbar, Profil kann nicht geladen werden"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:291
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:290
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:207
 msgid "Loading profile failed"
 msgstr "Profil laden fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:345
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:308
+msgid "Registered"
+msgstr "Registriert"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:317
+msgid "Last ride"
+msgstr "Letzte Fahrt"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:327
+msgid "Ride count"
+msgstr "Fahrten"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:335
+msgid "Free rides"
+msgstr "Freifahrten"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:343
+msgid "Balance"
+msgstr "Guthaben"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:404
 msgid "Loading configuration failed"
 msgstr "Laden der Konfiguration fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:398
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:459
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:329
 msgid "Loading existing/active ride failed"
 msgstr "Vorige/aktive Fahrt laden fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:411
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:474
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:345
 msgid "Failed to load existing/active ride (missing information in response)"
 msgstr ""
 "Vorige/aktive Fahrt laden fehlgeschlagen (fehlende Information in Antwort)"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:445
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:512
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:524
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:402
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:415
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:425
 msgid "Loading scooters failed"
 msgstr "Scooter laden fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:536
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:596
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:547
 msgid "Loading areas failed"
 msgstr "Gebiete laden fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:645
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:699
 msgid "Alarming scooter failed"
 msgstr "Scooter anklingeln fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:647
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:702
 #: Scooter.desktop.in.h:1
 msgid "Scooter"
 msgstr "Scooter"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:647
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:702
 msgid "Scooter alarm successfully triggered"
 msgstr "Scooter erfolgreich angeklingelt"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:680
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:757
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:737
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:821
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:692
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:764
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:794
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:798
 msgid "Starting ride failed"
 msgstr "Fahrt starten fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:692
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:700
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:708
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:754
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:765
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:775
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:708
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:719
 msgid ""
 "Scooter could not successfully be scanned / details could not be fetched"
 msgstr ""
 "Scooter konnte nicht gescannt werden / Details konnten nicht abgerufen werden"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:769
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:837
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:781
 msgid ""
 "Unlocking failed. Response did not contain ride information. Please re-check "
 "ride with official bird app. Issues in response:\n"
 msgstr ""
-"Entsperren fehlgeschlagen. Antwort enthielt keine Fahrt-Informationen. Bitte "
-"mit der offiziellen Bird App prüfen. Probleme in der Antwort:\n"
+"Probleme beim Foto-Upload. Bitte mit der offiziellen Bird App prüfen. "
+"Probleme in der Antwort:\n"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:775
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:844
 msgid "Problems while unlocking. Please re-check ride with official bird app."
 msgstr ""
 "Probleme bei der Entsperrung. Bitte mit der offiziellen Bird App prüfen."
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:812
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:884
 msgid "Stopping ride failed"
 msgstr "Fahrt beenden fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:824
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:899
 msgid ""
 "Problems while stopping ride. Please re-check ride with official bird app. "
 "Issues in response:\n"
 msgstr ""
-"Fahrt beenden fehlgeschlagen. Bitte mit der offiziellen Bird App prüfen. "
-"Probleme in der Antwort:\n"
+"Probleme bei der Entsperrung. Bitte mit der offiziellen Bird App prüfen.\n"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:832
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:908
 msgid ""
 "Stopping ride failed. Response did not contain expected information. Please "
 "check with official bird app, or please check no-parking zone."
@@ -429,7 +466,7 @@ msgstr ""
 "Informationen. Bitte mit der offiziellen Bird App prüfen, oder no-parkin "
 "Zones prüfen."
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:840
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:918
 msgid ""
 "Stopping ride failed. Response did not contain completed stamp. Please check "
 "with official bird app, or please check no-parking zone."
@@ -437,45 +474,252 @@ msgstr ""
 "Fahrt beenden fehlgeschlagen. Antwort enthielt nicht den Ende-Zeitstempel. "
 "Bitte mit der offiziellen Bird App prüfen, oder no-parkin Zones prüfen."
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:881
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:962
 msgid "Uploading photo failed"
 msgstr "Foto-Upload fehlgeschlagen"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:893
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:979
 msgid ""
 "Problems while uploading photo. Please re-check ride with official bird app. "
 "Issues in response:\n"
 msgstr ""
-"Probleme beim Foto-Upload. Bitte mit der offiziellen Bird App prüfen. "
-"Probleme in der Antwort:\n"
+"Probleme beim Hochladen des Fotos. Bitte mit der offiziellen Bird App "
+"prüfen. Fehler in der Antwort:\n"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:921
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providerbird.cpp:1008
 msgid "Adding voucher code failed"
 msgstr "Fehler beim Hinzufügen des Gutscheincodes"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:170
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:185
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:206
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:221
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:236
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:251
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:159
+msgid "Login failed (no login key received)"
+msgstr "Anmeldung fehlgeschlagen (keinen Login-Key erhalten)"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:214
+msgid "Loading profile failed (empty/malformed response)"
+msgstr "Profil laden fehlgeschlagen (unerwartete Antwort)"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:224
+msgid "Phone"
+msgstr "Telefon"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:240
+msgid "Language"
+msgstr "Sprache"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:248
+msgid "Currency"
+msgstr "Währung"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:261
+msgid "Credits"
+msgstr "Credits"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:269
+msgid "Free seconds"
+msgstr "Freifahrten"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:359
+msgid ""
+"Failed to load existing/active ride (missing information in response/rental "
+"list)"
+msgstr ""
+"Vorige/aktive Fahrt laden fehlgeschlagen (fehlende Information in Antwort)"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:810
+msgid ""
+"Problems while unlocking. Please re-check ride with official NextBike app."
+msgstr ""
+"Probleme bei der Entsperrung. Bitte mit der offiziellen Bird App prüfen."
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:856
+msgid "Checking ride failed"
+msgstr "Fahrt prüfen fehlgeschlagen"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:874
+msgid "Failed to check active ride (missing information in response)"
+msgstr ""
+"Vorige/aktive Fahrt prüfen fehlgeschlagen (fehlende Information in Antwort)"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:886
+msgid "Failed to check active ride (missing information in rental)"
+msgstr ""
+"Vorige/aktive Fahrt prüfen fehlgeschlagen (fehlende Information in Antwort)"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/providernextbike.cpp:922
+msgid ""
+"Bike has been parked in a flex zone, which leads to an increased service fee"
+msgstr ""
+"Das Fahrrad wurde in einer Flexzone abgestellt, was zu einer erhöhten "
+"Servicegebühr führt"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:178
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:192
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:211
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:225
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:239
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:253
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:267
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:281
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:295
 #: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:309
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:324
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:354
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:356
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:371
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:398
 msgid "Provider unknown/not supported"
 msgstr "Anbieter unbekannt/nicht unterstützt"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:200
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:206
 msgid "Can not log out while ride is active"
 msgstr "Ausloggen nicht möglich so lange eine Fahrt aktiv ist"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:348
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:393
 msgid "Ride already active, can not start new ride"
 msgstr "Fahrt bereits aktiv, neue Fahrt kann nicht gestartet werden"
 
-#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:379
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:416
+msgid "Successfully unlocked again"
+msgstr "Erfolgreich erneut entsperrt"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:428
 msgid "No ride active, can not stop ride"
 msgstr "Keine Fahrt aktiv, Fahrt kann nicht beendet werden"
 
-#~ msgid "not logged in"
-#~ msgstr "Nicht eingeloggt"
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:450
+msgid "No ride active, can not check ride"
+msgstr "Keine Fahrt aktiv, Fahrt kann nicht geprüft werden"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:480
+msgid "App data storage location inaccessible"
+msgstr "Zugriff auf App-Datenspeicherort nicht möglich"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:481
+msgid "can't create folder: "
+msgstr "kann keinen Ordner erstellen: "
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:494
+msgid "Log export"
+msgstr "Log-Export"
+
+#: /home/s710/Development/ubuntu-touch/Scooter/src/scooters.cpp:495
+msgid "Failed to create log export: "
+msgstr "Log export konnte nicht erzeugt werden: "
+
+#, fuzzy
+#~| msgid ""
+#~| "Unlocking failed. Response did not contain ride information. Please re-"
+#~| "check ride with official bird app. Issues in response:\n"
+#~ msgid "Unlocking failed. Response did not contain ride information. Please "
+#~ msgstr ""
+#~ "Entsperren fehlgeschlagen. Antwort enthielt keine Fahrt-Informationen. "
+#~ "Bitte mit der offiziellen Bird App prüfen. Probleme in der Antwort:\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Problems while stopping ride. Please re-check ride with official bird "
+#~| "app. Issues in response:\n"
+#~ msgid "Problems while stopping ride. Please re-check ride with official "
+#~ msgstr ""
+#~ "Fahrt beenden fehlgeschlagen. Bitte mit der offiziellen Bird App prüfen. "
+#~ "Probleme in der Antwort:\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Unlocking failed. Response did not contain ride information. Please re-"
+#~| "check ride with official bird app. Issues in response:\n"
+#~ msgid ""
+#~ "Stopping ride failed. Response did not contain expected information. "
+#~ msgstr ""
+#~ "Entsperren fehlgeschlagen. Antwort enthielt keine Fahrt-Informationen. "
+#~ "Bitte mit der offiziellen Bird App prüfen. Probleme in der Antwort:\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Unlocking failed. Response did not contain ride information. Please re-"
+#~| "check ride with official bird app. Issues in response:\n"
+#~ msgid ""
+#~ "Stopping ride failed. Response did not contain completed stamp. Please "
+#~ msgstr ""
+#~ "Entsperren fehlgeschlagen. Antwort enthielt keine Fahrt-Informationen. "
+#~ "Bitte mit der offiziellen Bird App prüfen. Probleme in der Antwort:\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Problems while stopping ride. Please re-check ride with official bird "
+#~| "app. Issues in response:\n"
+#~ msgid "Problems while uploading photo. Please re-check ride with "
+#~ msgstr ""
+#~ "Fahrt beenden fehlgeschlagen. Bitte mit der offiziellen Bird App prüfen. "
+#~ "Probleme in der Antwort:\n"
+
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#~ msgid "please select"
+#~ msgstr "bitte auswählen"
+
+#~ msgid "Select country"
+#~ msgstr "Land wählen"
+
+#~ msgid "City"
+#~ msgstr "Stadt"
+
+#~ msgid "Select city"
+#~ msgstr "Stadt auswählen"
+
+#~ msgid ""
+#~ "Bike still does not seem to be locked. Please make sure you physically "
+#~ "lock the bike lock and try again. If it still does not work, please "
+#~ "restart the app or try to use the official NextBike app."
+#~ msgstr ""
+#~ "Das Fahrrad scheint noch nicht abgeschlossen zu sein. Bitte stellen Sie "
+#~ "sicher, dass das Fahrradschloss abgeschlossen ist, und versuchen Sie "
+#~ "erneut. Falls das immer noch nicht funktioniert, bitte App neu starten, "
+#~ "oder mit der offiziellen NextBike app prüfen."
+
+#~ msgid "Try again"
+#~ msgstr "Erneut versuchen"
+
+#~ msgid "I have locked the bike"
+#~ msgstr "Ich habe das Fahrrad abgeschlossen"
+
+#~ msgid "Maps"
+#~ msgstr "Karten"
+
+#~ msgid "Restart the app after changing the map type"
+#~ msgstr "Starten Sie die App nach dem Ändern des Kartentyps neu"
+
+#~ msgid "Use OpenStreetMap"
+#~ msgstr "OpenStreetMap verwenden"
+
+#~ msgid "Use Mapbox GL"
+#~ msgstr "Mapbox GL verwenden"
+
+#~ msgid "Mapbox Access Token"
+#~ msgstr "Mapbox Access Token "
+
+#~ msgid "Map won't work unless a valid access token is supplied"
+#~ msgstr ""
+#~ "Die Karte funktioniert nur, wenn ein gültiger Access-Token bereitgestellt "
+#~ "wird"
+
+#~ msgid ""
+#~ "Mapbox requires a valid account and associated API key. After generating "
+#~ "the key, please add it in the field below and restart the app.\n"
+#~ "To create an API key, consult the following article:\n"
+#~ "https://docs.mylistingtheme.com/article/how-to-generate-a-mapbox-api-key"
+#~ msgstr ""
+#~ "Mapbox erfordert ein gültiges Konto und einen zugehörigen API-Schlüssel. "
+#~ "Nachdem Sie den Schlüssel generiert haben, fügen Sie ihn bitte in das "
+#~ "Feld unten ein und starten Sie die App neu.\n"
+#~ "Informationen zum Erstellen eines API-Schlüssels finden Sie im folgenden "
+#~ "Artikel:\n"
+#~ "https://docs.mylistingtheme.com/article/how-to-generate-a-mapbox-api-key"
+
+#~ msgid "Enter mapbox access token"
+#~ msgstr "Mapbox Access-Token eingeben"
+
+#~ msgid "Save"
+#~ msgstr "Speichern"
+
+#~ msgid "Please restart app"
+#~ msgstr "Bitte starten Sie die App neu"

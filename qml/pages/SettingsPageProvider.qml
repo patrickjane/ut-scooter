@@ -10,6 +10,8 @@ Page {
    property var positionSource
    property string provider
    property string account
+   property string city
+   property string country
    property var scooters
 
    id: settingsPageProvider
@@ -24,7 +26,7 @@ Page {
       })
 
       scooters.onLoginStatusChanged.connect(function(providerName, loggedIn, account) {
-         console.log("Login status changed")
+         console.log("Login status changed", providerName, loggedIn, account)
 
          if (providerName === provider) {
             settingsPageProvider.account = !loggedIn ? "" : (account && account.length ? account : "")
@@ -85,10 +87,16 @@ Page {
                      if (account) {
                         scooters.logout(provider)
                      } else {
-                        var dialog = pageStack.push(Qt.resolvedUrl("./LoginPage.qml"), {
+
+                        var pageName = "./LoginPage.qml"
+
+                        if (provider == "nextbike")
+                           pageName = "./LoginPageNextbike.qml"
+
+                        var dialog = pageStack.push(Qt.resolvedUrl(pageName), {
                                                       provider: provider,
                                                       scooters: scooters,
-                                                      providerHasConfirmation: true
+                                                      providerHasConfirmation: provider == "bird"
                                                    })
                      }
                   }
@@ -120,6 +128,77 @@ Page {
                scooters.getProfile(provider)
             }
          }
+
+         // ListItem {
+         //    height: layout5.height + (divider.visible ? divider.height : 0)
+         //    visible: provider === "nextbike"
+
+         //    SlotsLayout {
+         //       id: layout5
+         //       mainSlot: Label {
+         //          text: i18n.tr("Country") + ": " + (country || i18n.tr("please select"))
+         //       }
+         //       Icon {
+         //          name: "toolkit_chevron-ltr_3gu"
+         //          SlotsLayout.position: SlotsLayout.Trailing;
+         //          width: units.gu(2)
+         //       }
+         //    }
+
+         //    onClicked: {
+         //       var countries = Provider.getCountryList(provider)
+         //       var countryNames = countries.map(function(c) { return c.name })
+
+         //       var p = pageStack.push(Qt.resolvedUrl("../util/ListSelector.qml"), { items: countryNames, title: i18n.tr("Select country") })
+
+         //       p.itemSelected.connect(function(index, value) {
+         //          var countryObj = countries[index]
+
+         //          settingsPageProvider.country = countryObj.name
+         //          settingsPageProvider.city = null
+
+         //          scooters.setCountry(provider, countryObj.name)
+         //          scooters.setCity(provider, "", "")
+         //       })
+         //    }
+         // }
+
+         // ListItem {
+         //    height: layout6.height + (divider.visible ? divider.height : 0)
+         //    visible: provider === "nextbike"
+         //    enabled: !!country
+
+         //    SlotsLayout {
+         //       id: layout6
+         //       mainSlot: Label {
+         //          text: i18n.tr("City") + ": " + (city || i18n.tr("please select"))
+         //       }
+         //       Icon {
+         //          name: "toolkit_chevron-ltr_3gu"
+         //          SlotsLayout.position: SlotsLayout.Trailing;
+         //          width: units.gu(2)
+         //       }
+         //    }
+
+         //    onClicked: {
+         //       var cities = Provider.getCityList(provider, country)
+         //       var cityNames = cities.map(function(c) { return c.name })
+
+         //       var p = pageStack.push(Qt.resolvedUrl("../util/ListSelector.qml"), {
+         //          items: cityNames, title: i18n.tr("Select city")
+         //          })
+
+         //       p.itemSelected.connect(function(index, value) {
+         //          var cityObj = cities[index]
+
+         //          settingsPageProvider.city = value
+         //          scooters.setCity(provider, cityObj.name, cityObj.domain)
+
+         //          Provider.update(provider, settingsPageProvider.country, cityObj.name, cityObj.domain)
+         //       })
+         //    }
+         // }
+
       }
    }
 
@@ -127,6 +206,8 @@ Page {
       switch (provider) {
          case "bird":
             return i18n.tr("Access to electric scooters provided by Bird (see https://www.bird.co). Existing account with associated payment information is needed. This app does not support creating accounts or changing payment information.")
+         case "nextbike":
+            return i18n.tr("Access to bikes provided by NextBike (see https://www.nextbike.de/de/). Existing account with associated payment information is needed. This app does not support creating accounts or changing payment information.")
       }
 
       return i18n.tr("No description available")
